@@ -1,0 +1,293 @@
+object FormMain: TFormMain
+  Left = 0
+  Top = 0
+  Caption = 'TfgActionSheet: Demo'
+  ClientHeight = 562
+  ClientWidth = 384
+  Padding.Left = 10.000000000000000000
+  Padding.Top = 10.000000000000000000
+  Padding.Right = 10.000000000000000000
+  Padding.Bottom = 10.000000000000000000
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnCreate = FormCreate
+  DesignerMasterStyle = 0
+  object Button1: TButton
+    Align = Top
+    Position.X = 10.000000000000000000
+    Position.Y = 274.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 44.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 0
+    Text = 'Move Mail To...'
+    OnClick = Button1Click
+  end
+  object Label2: TLabel
+    Align = Top
+    AutoSize = True
+    Margins.Top = 5.000000000000000000
+    Margins.Bottom = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 216.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 48.000000000000000000
+    Size.PlatformDefault = False
+    StyleLookup = 'embossedlabel'
+    TextSettings.VertAlign = Leading
+    Text = 
+      'This feature allows to show about observance of the accepted sta' +
+      'ndards. For Example: On iOS button Cancel and Destruction will a' +
+      'ppear on bottom of menu.'
+  end
+  object Layout1: TLayout
+    Align = Top
+    Margins.Top = 1.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 161.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    object Label1: TLabel
+      Align = Left
+      StyledSettings = [Family, Size, FontColor]
+      Margins.Top = 1.000000000000000000
+      Position.Y = 1.000000000000000000
+      Size.Width = 241.000000000000000000
+      Size.Height = 49.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listboxitemlabel'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'Use OS specific UI Guidline:'
+    end
+    object SwitchUseUIGuildline: TSwitch
+      Align = Right
+      ControlType = Platform
+      IsChecked = True
+      Margins.Top = 7.000000000000000000
+      Margins.Bottom = 8.000000000000000000
+      Position.X = 309.000000000000000000
+      Position.Y = 7.000000000000000000
+      Size.Width = 55.000000000000000000
+      Size.Height = 35.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+    end
+  end
+  object LabelError: TLabel
+    Align = Bottom
+    AutoSize = True
+    StyledSettings = [Family, Size, Style]
+    Margins.Top = 5.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 536.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 16.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.FontColor = claRed
+    TextSettings.HorzAlign = Center
+    Text = 'Action Sheet is not supported on current platform'
+  end
+  object LabelLog: TLabel
+    Align = Top
+    Margins.Top = 10.000000000000000000
+    Position.X = 10.000000000000000000
+    Position.Y = 328.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 33.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object fgActionSheet: TfgActionSheet
+    Actions = <
+      item
+        Caption = 'To Inbox'
+        OnClick = fgActionSheetActions0Click
+      end
+      item
+        Caption = 'Cancel'
+        Style = Cancel
+        OnClick = fgActionSheetActions0Click
+      end
+      item
+        Caption = 'To Archive'
+        OnClick = fgActionSheetActions0Click
+      end
+      item
+        Caption = 'To Trash'
+        Style = Destructive
+        OnClick = fgActionSheetActions0Click
+      end
+      item
+        Visible = False
+        OnClick = fgActionSheetActions0Click
+      end
+      item
+        Action = ActionToSpam
+        Caption = 'To Spam'
+      end
+      item
+        Action = TakePhotoFromLibraryAction1
+        Caption = 'Choose Photo'
+      end
+      item
+        Action = TakePhotoFromCameraAction1
+        Caption = 'Take Photo'
+      end
+      item
+        Action = EditVirtualKeyboard1
+        Caption = 'On-Screen Keyboard'
+      end>
+    ThemeID = 1
+    Title = 'Move E-mail to..'
+    OnShow = fgActionSheetShow
+    OnHide = fgActionSheetHide
+    OnItemClick = fgActionSheetItemClick
+    Left = 116
+    Top = 208
+  end
+  object MemoLog: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Client
+    ControlType = Platform
+    Size.Width = 364.000000000000000000
+    Size.Height = 170.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+    Viewport.Width = 360.000000000000000000
+    Viewport.Height = 166.000000000000000000
+  end
+  object Layout2: TLayout
+    Align = Top
+    Position.X = 10.000000000000000000
+    Position.Y = 10.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 8
+    object Label3: TLabel
+      Align = Left
+      StyledSettings = [Family, Size, FontColor]
+      Size.Width = 161.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listboxitemlabel'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'Theme:'
+    end
+    object ComboBoxTheme: TComboBox
+      Align = Right
+      Items.Strings = (
+        'Auto (iOS, Android)'
+        'Dark (iOS, Android)'
+        'Light (Android)'
+        'Custom (Android)')
+      ItemIndex = 0
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Position.X = 160.000000000000000000
+      Position.Y = 10.000000000000000000
+      Size.Width = 204.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 1
+      OnChange = ComboBoxThemeChange
+    end
+  end
+  object LayoutThemeID: TLayout
+    Align = Top
+    Position.X = 10.000000000000000000
+    Position.Y = 60.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    object Label4: TLabel
+      Align = Left
+      StyledSettings = [Family, Size, FontColor]
+      Size.Width = 161.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listboxitemlabel'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'ThemeID:'
+    end
+    object NumberBoxThemeID: TNumberBox
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Right
+      TabOrder = 1
+      Cursor = crIBeam
+      Min = -1.000000000000000000
+      Max = 10000000.000000000000000000
+      Value = 1.000000000000000000
+      Position.X = 248.000000000000000000
+      Position.Y = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 116.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      OnChangeTracking = NumberBoxThemeIDChangeTracking
+    end
+  end
+  object Layout3: TLayout
+    Align = Top
+    Position.X = 10.000000000000000000
+    Position.Y = 110.000000000000000000
+    Size.Width = 364.000000000000000000
+    Size.Height = 50.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 6
+    object Label5: TLabel
+      Align = Left
+      StyledSettings = [Family, Size, FontColor]
+      Size.Width = 161.000000000000000000
+      Size.Height = 50.000000000000000000
+      Size.PlatformDefault = False
+      StyleLookup = 'listboxitemlabel'
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'Title'
+    end
+    object EditTitle: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      Align = Right
+      TabOrder = 1
+      ControlType = Platform
+      Text = 'Move E-mail to..'
+      Position.X = 160.000000000000000000
+      Position.Y = 10.000000000000000000
+      Margins.Top = 10.000000000000000000
+      Margins.Bottom = 10.000000000000000000
+      Size.Width = 204.000000000000000000
+      Size.Height = 30.000000000000000000
+      Size.PlatformDefault = False
+      OnChangeTracking = EditTitleChangeTracking
+      object ClearEditButton1: TClearEditButton
+        CanFocus = False
+        Cursor = crArrow
+        Size.Width = 22.000000000000000000
+        Size.Height = 26.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+      end
+    end
+  end
+  object ActionList: TActionList
+    Left = 200
+    Top = 208
+    object ActionToSpam: TAction
+      Text = 'To Spam'
+    end
+    object TakePhotoFromCameraAction1: TTakePhotoFromCameraAction
+      CustomText = 'Take Photo'
+    end
+    object TakePhotoFromLibraryAction1: TTakePhotoFromLibraryAction
+      CustomText = 'Choose Photo'
+    end
+    object EditVirtualKeyboard1: TVirtualKeyboard
+      Text = 'On-Screen Keyboard'
+      FmxObject = Button1
+    end
+  end
+end
